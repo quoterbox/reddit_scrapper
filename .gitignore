@@ -1,6 +1,6 @@
 # gitignore
-.env.php
-*.env.php
+.env
+*.env
 *.csv
 *cookie*
 *.zip
