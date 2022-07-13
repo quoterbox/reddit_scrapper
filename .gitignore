@@ -1,0 +1,19 @@
+# gitignore
+.env.php
+*.env.php
+*.csv
+*cookie*
+*.zip
+*.rar
+*.tar
+*.xlsx
+*.xls
+*.jpg
+*.png
+*.jpeg
+*.JPG
+*.PNG
+*.JPEG
+*.txt
+.idea
+!readme.txt
