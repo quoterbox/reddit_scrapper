@@ -121,5 +121,5 @@ reddit = praw.Reddit(
 )
 
 for channel in channels:
-    posts = read_hot_posts_with_comments(channel, 2)
+    posts = read_hot_posts_with_comments(channel, 200)
     save_posts_into_file(file_name, table_fields, posts)
