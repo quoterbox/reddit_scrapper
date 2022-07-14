@@ -7,7 +7,7 @@ def read_hot_posts_with_comments(reddit, channel: str, limit: int) -> []:
     for submission in reddit.subreddit(channel).hot(limit=limit):
         submission.comments.replace_more(limit=None)
 
-        print("-- " + submission.subreddit_id + " --")
+        print("-- " + getattr(submission, "id", "None") + " --")
         print("Subreddit for -", getattr(submission.subreddit, "display_name", "None"), end="\n")
 
         for comment in submission.comments.list():
