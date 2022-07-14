@@ -1,5 +1,6 @@
 # gitignore
 .env
+.lock
 *.env
 *.csv
 *cookie*

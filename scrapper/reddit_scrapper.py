@@ -7,6 +7,7 @@ def read_hot_posts_with_comments(reddit, channel: str, limit: int) -> []:
     for submission in reddit.subreddit(channel).hot(limit=limit):
         submission.comments.replace_more(limit=None)
 
+        print("-- " + submission.subreddit_id + " --")
         print("Subreddit for -", getattr(submission.subreddit, "display_name", "None"), end="\n")
 
         for comment in submission.comments.list():
@@ -20,7 +21,7 @@ def read_hot_posts_with_comments(reddit, channel: str, limit: int) -> []:
                     'permalink': 'https://www.reddit.com' + submission.permalink,
                     'link_flair_text': submission.link_flair_text,
                     'author': getattr(submission.author, "name", "None"),
-                    'author_fullname': submission.author_fullname,
+                    'author_fullname': getattr(submission, "author_fullname", "None"),
                     'author_premium': submission.author_premium,
                     'subreddit_subscribers': submission.subreddit_subscribers,
                     'num_comments': submission.num_comments,
@@ -35,7 +36,7 @@ def read_hot_posts_with_comments(reddit, channel: str, limit: int) -> []:
                     'comment_id': comment.id,
                     'comment_body': comment.body,
                     'comment_author': getattr(comment.author, "name", "None"),
-                    'comment_author_fullname': comment.author_fullname,
+                    'comment_author_fullname': getattr(comment, "author_fullname", "None"),
                     'comment_score': comment.score,
                     'comment_created': comment.created,
                     'comment_date': datetime.utcfromtimestamp(comment.created).strftime('%Y-%m-%d %H:%M:%S'),
